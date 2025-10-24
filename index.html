@@ -19,38 +19,145 @@
     }
 
     /* Navigation */
-    nav {
-      background: linear-gradient(135deg, #ff6b35, #ffa500);
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Navigation */
+nav {
+  background: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.logo-text {
+  color: #333;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: #ff6b35;
+  transform: scale(1.05);
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
+  transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: linear-gradient(135deg, #ff6b35, #ffa500);
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover > a {
+  color: #ff6b35;
+}
+
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
     }
 
-    nav ul {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      list-style: none;
-      flex-wrap: wrap;
-      padding: 0 20px;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: white;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 1;
+      top: 100%;
+      left: 0;
+      overflow: hidden;
     }
 
-    nav a {
-      color: white;
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1em;
-      transition: 0.3s ease;
+      display: block;
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+      transition: 0.3s;
     }
 
-    nav a:hover {
+    .dropdown-content a:hover {
+      background: #ff6b35;
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover > a {
       color: #fff;
       text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-      transform: scale(1.05);
     }
 
     /* Banner Section */
@@ -297,8 +404,72 @@
       font-size: 0.9em;
     }
 
+    /* Form Styling */
+    .form-container {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border 0.3s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #ff6b35;
+      box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #ff6b35, #ffa500);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(255, 107, 53, 0.3);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .logo-container {
+        justify-content: center;
+      }
+      
       .hero h1 {
         font-size: 2.2em;
       }
@@ -331,6 +502,21 @@
       .cta-buttons a {
         width: 100%;
       }
+      
+      .dropdown-content {
+        position: static;
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      
+      .form-container {
+        padding: 25px;
+      }
     }
   </style>
 </head>
@@ -338,17 +524,30 @@
 
   <!-- Navigation -->
   <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+      <div class="logo-container">
+        <!-- Replace with your actual logo path -->
+        <img src="assests/logo.png" alt="Summer Beat Logo" class="logo-img" />
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li class="dropdown">
+          <a href="catalog.html">Catalogues</a>
+          <div class="dropdown-content">
+            <a href="catalog.html#summer">SB Summer Collection</a>
+            <a href="catalog.html#winter">SB Winter Collection</a>
+            <a href="catalog.html#cooler">SB Cooler Collection</a>
+          </div>
+        </li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Banner Section -->
   <div class="banner-section">
-    <img src="assests\Banner.png" alt="Summer Beat Home Appliances Banner" />
+    <img src="assests/Banner.png" alt="Summer Beat Home Appliances Banner" />
   </div>
 
   <!-- Hero Section -->
@@ -443,88 +642,63 @@
   <p class="motto">"Cool Summers, Warm Winters — Comfort for Every Season"</p>
 
   <!-- Contact & Map Section -->
-<section id="contact" style="padding: 50px 20px; background-color: #f8f8f8;">
-  <h2 style="text-align:center; font-size: 2em; margin-bottom: 20px; color: #333;">Contact Us</h2>
+  <section id="contact" style="padding: 50px 20px; background-color: #f8f8f8;">
+    <h2 style="text-align:center; font-size: 2em; margin-bottom: 20px; color: #333;">Contact Us</h2>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; margin: auto;">
-    
-    <!-- Google Map -->
-    <div style="flex: 1 1 400px; min-width: 320px;">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1294.5161540237482!2d77.42689544102399!3d28.68242489281087!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf132d4ab4e69%3A0x1dbf00033d8a8fe7!2sSummer%20Beat%20Home%20Appliances!5e1!3m2!1sen!2sin!4v1761286402692!5m2!1sen!2sin" 
-        width="100%" 
-        height="350" 
-        style="border:0; border-radius: 10px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-      <p style="text-align:center; margin-top: 10px; font-size: 1em; color: #555;">
-        📍 <a href="https://maps.app.goo.gl/v5dsbne3ULpKL6Ys9" target="_blank" style="color: #ff6600; text-decoration: none;">
-        View on Google Maps
-        </a>
-      </p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; margin: auto;">
+      
+      <!-- Google Map -->
+      <div style="flex: 1 1 400px; min-width: 320px;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1294.5161540237482!2d77.42689544102399!3d28.68242489281087!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf132d4ab4e69%3A0x1dbf00033d8a8fe7!2sSummer%20Beat%20Home%20Appliances!5e1!3m2!1sen!2sin!4v1761286402692!5m2!1sen!2sin" 
+          width="100%" 
+          height="350" 
+          style="border:0; border-radius: 10px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <p style="text-align:center; margin-top: 10px; font-size: 1em; color: #555;">
+          📍 <a href="https://maps.app.goo.gl/v5dsbne3ULpKL6Ys9" target="_blank" style="color: #ff6600; text-decoration: none;">
+          View on Google Maps
+          </a>
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <div style="flex: 1 1 400px; min-width: 320px;">
+        <div class="form-container">
+          <form id="contactForm" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Contact Form -->
-    <div style="flex: 1 1 400px; min-width: 320px;">
-      <form action="https://formspree.io/f/your-form-id" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Your Name" 
-          required 
-          style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em;"
-        >
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Your Email" 
-          required 
-          style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em;"
-        >
-        <textarea 
-          name="message" 
-          placeholder="Your Message" 
-          rows="5" 
-          required 
-          style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em; resize: vertical;"
-        ></textarea>
-        <button 
-          type="submit" 
-          style="padding: 12px; background-color: #ff6600; color: white; border: none; border-radius: 6px; font-size: 1em; cursor: pointer;"
-        >
-          Send Message
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Optional: Success Message Script -->
-<script>
-  const form = document.querySelector('form[action*="formspree.io"]');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      alert('✅ Message sent successfully!');
-      form.reset();
-    } else {
-      alert('❌ There was an error. Please try again.');
-    }
-  });
-</script>
-
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2><span class="emoji">📍</span>Contact Us</h2>
+  <!-- Contact Info Section -->
+  <section class="contact" id="contact-info">
+    <h2><span class="emoji">📍</span>Contact Information</h2>
     <p style="font-size: 1.3em; margin-bottom: 30px;"><strong>Summer Beat Home Appliances</strong></p>
     <p class="iso-badge">ISO 9001:2015 CERTIFIED</p>
     
@@ -538,6 +712,9 @@
         <h4>✉️ Email</h4>
         <p><a href="mailto:summerbeathomeappliance@gmail.com">summerbeathomeappliance@gmail.com</a></p>
       </div>
+      
+      
+      </div>
     </div>
   </section>
 
@@ -547,6 +724,47 @@
     <p>ISO 9001:2015 Certified | Quality • Affordability • Reliability</p>
     <p>Cool Summers, Warm Winters — Comfort for Every Season</p>
   </footer>
+
+  <script>
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData);
+      
+      // In a real implementation, you would send this data to a server
+      // For now, we'll just show a success message
+      
+      alert('Thank you for your message! We will get back to you soon.');
+      contactForm.reset();
+      
+      // Uncomment the following code if you want to actually submit the form
+      /*
+      fetch('https://formspree.io/f/your-form-id', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Thank you for your message! We will get back to you soon.');
+          contactForm.reset();
+        } else {
+          alert('There was an error sending your message. Please try again.');
+        }
+      })
+      .catch(error => {
+        alert('There was an error sending your message. Please try again.');
+      });
+      */
+    });
+  </script>
 
 </body>
 </html>
