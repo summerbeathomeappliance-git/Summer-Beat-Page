@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SummerBeat.css';
+import './summerbeat.css';
 
 const SummerBeat = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
